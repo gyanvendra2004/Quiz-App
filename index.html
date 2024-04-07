@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="head">
+            <img src="notes.png" alt="">
+            <h1>Notes</h1>
+        </div>
+        <button id="createBtn">
+            <img src="pen.png" id="pen">
+            Create Notes
+        </button>
+        <div class="input">
+            <!-- <p contenteditable="true" class="input-box">
+                <img src="trash.png" id="delete">
+            </p> -->
+        </div>
+    </div>
+</body>
+<script>
+    const createBtn = document.querySelector('#createBtn')
+    const inputContainer = document.querySelector(".input")
+    const inputBox = document.querySelectorAll('.input-box')
+
+
+    // const trash = document.querySelector('#delete')
+    // console.log(trash);
+
+    function displayInput() { 
+        let input = document.createElement('p')
+        let img = document.createElement("img")
+        input.className = 'input-box'
+        input.setAttribute("contenteditable","true")
+        img.src ="trash.png"
+        inputContainer.appendChild(input).appendChild(img)
+
+        img.addEventListener('click', function(e){
+          console.log(e.target.parentNode);
+          e.target.parentNode.remove()
+        })
+    }
+    createBtn.addEventListener('click', () => {
+      displayInput()
+    })
+
+
+
+
+    // trash.addEventListener('click', function (e) {
+    //     console.log(e.target);
+        
+    // })
+
+
+
+</script>
+</html>
